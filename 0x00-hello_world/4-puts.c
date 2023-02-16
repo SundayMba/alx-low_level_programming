@@ -1,16 +1,13 @@
 #include <stdio.h>
 
-/*
- * main - entry point
- * 
- * Return: Always 0 (Success)
+/**
+ * main - Entry point
  *
- * this is the main function which acts as the entry point of all c/c++
- * programs
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
-	const char *message = "\"Programming is like building a multilingual puzzle";
+	const char *message = "\"Programming is like building a multilin	gual puzzle";
 
 	puts(message);
 	return (0);
