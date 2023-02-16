@@ -1,6 +1,5 @@
 #include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
+
 /**
  * main - Entry point
  *
@@ -8,8 +7,6 @@
  */
 int main(void)
 {
-	const char *msg = "and that piece of art is useful\" - Dora Korpar, 2015-10-19";
-
-	fwrite(msg, strlen(msg), 1, stderr);
+	fputs("and that piece of art is useful\" - Dora Korpar, 2015-10-19");
 	return (1);
 }
