@@ -5,9 +5,9 @@
 #include <string.h>
 /* betty style doc for function main goes there */
 /*
-*Description: main - entry point
-*Return: 0
-*/
+ * Description: main - entry point
+ * Return: (0)
+ */
 int main(void)
 {
 	int n;
@@ -20,7 +20,7 @@ int main(void)
 	/* your code goes there */
 	sprintf(n_str, "%d", n);
 	/*get string length*/
-  	strLength = strlen(n_str);
+	strLength = strlen(n_str);
 	/*Get last element and convert it to ascii int represention: 3 (char) -> 51 (int)*/
 	lastElement = n_str[strLength - 1];
 	/*implement logic*/
