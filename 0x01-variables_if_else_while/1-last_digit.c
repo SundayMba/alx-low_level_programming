@@ -12,7 +12,6 @@ int main(void)
 {
 	int n;
 	char n_str[12];
-	int i;
 	int strLength;
 	int lastElement;
 
