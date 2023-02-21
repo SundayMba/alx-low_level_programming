@@ -9,9 +9,9 @@ int main(void)
 	//print_alphabet_x10();
 	int r;
 
-	r = _islower('a');
+	r = _isalpha('a');
 	_putchar(r + '0');
-	r = _islower('A');
+	r = _isalpha(';');
 	_putchar(r + '0');
 	_putchar('\n');
 	return (0);
