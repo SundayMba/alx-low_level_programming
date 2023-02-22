@@ -1,3 +1,6 @@
+#ifndef MAIN_H
+#define MAIN_H
+
 /*prototype functions*/
 int _putchar(char c);
 void print_alphabet(void);
@@ -8,3 +11,7 @@ int print_sign(int n);
 int _abs(int);
 int print_last_digit(int);
 void jack_bauer(void);
+void times_table(void);
+void times_table(void);
+
+#endif
