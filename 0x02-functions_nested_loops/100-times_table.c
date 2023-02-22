@@ -6,7 +6,7 @@
  */
 void print_times_table(int n)
 {
-	int i, j, currR, nextR, remP, whlP, last;
+	int i = 0, j = 0, currR = 0, nextR = 0, remP = 0, whlP = 0, last = 0;
 
 	if (n >= 0 && n <= 15)
 	{
