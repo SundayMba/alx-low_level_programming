@@ -15,5 +15,10 @@ void times_table(void);
 void times_table(void);
 int add(int, int);
 void print_to_98(int n);
+void print_times_table(int n);
+void print_to_std_4(void);
+void print_to_std_3(void);
+void print_to_std_char2(int, int, int);
+void print_to_std_char1(int, int, int, int);
 
 #endif
