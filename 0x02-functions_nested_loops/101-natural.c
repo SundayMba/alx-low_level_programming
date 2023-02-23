@@ -11,14 +11,8 @@ int main(void)
 
 	for (i = 1; i < n; i++)
 	{
-		if ((3 * i) < n)
-		{
-			sum += (3 * i);
-		}
-		if ((5 * i) < n)
-		{
-			sum += (5 * i);
-		}
+		if (i % 3 == 0 || i % 5 == 0)
+			sum += i;
 	}
 
 	printf("%d\n", sum);
