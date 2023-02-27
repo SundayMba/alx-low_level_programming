@@ -20,7 +20,11 @@ void puts_half(char *s)
 			val = *(s + count);
 		}
 	}
-	for (i = (count / 2); i < count; i++)
-		_putchar(s[i]);
+	if (count % 2 != 0)
+		for (i = (count - 1) / 2; i < count; i++)
+			_putchar(s[i]);
+	else
+		for (i = count / 2; i < count; i++)
+			_putchar(s[i]);
 	_putchar('\n');
 }
