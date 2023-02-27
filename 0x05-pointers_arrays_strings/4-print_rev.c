@@ -12,6 +12,7 @@ void print_rev(char *str)
 
 	for (; c != '\0'; c = *(str + count))
 		count++;
+	--count;
 	while (count >= 0)
 	{
 		_putchar(*(str + count));
