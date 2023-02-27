@@ -8,18 +8,10 @@
 void puts_half(char *s)
 {
 	int count = 0, i;
-	/*check if pointer is valid*/
-	if (*s)
-	{
-		char val;
-
-		val = *(s + count);
-		while (val != '\0')
-		{
-			count++;
-			val = *(s + count);
-		}
-	}
+	char *ptr;
+	
+	for (ptr = s; *ptr != '\0'; ptr++)
+		count++;
 	if (count % 2 != 0)
 		for (i = (count - 1) / 2; i < count; i++)
 			_putchar(s[i]);
