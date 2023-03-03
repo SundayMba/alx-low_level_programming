@@ -5,19 +5,27 @@
  */
 char *rot13(char *str)
 {
-	char *result = str;
-	int i;
-
+	int j, i;
+	char alphabet[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',
+		'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S',
+		'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd',
+		'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o',
+		'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
+	char rot13key[] = {'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V',
+		'W', 'X', 'Y', 'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G',
+		'H', 'I', 'J', 'K', 'L', 'M', 'n', 'o', 'p', 'q', 'r',
+		's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'a', 'b', 'c',
+		'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm'};
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		if (str[i] >= 'a' && str[i] <= 'z')
+		for (j = 0; j < 52; j++)
 		{
-			str[i] = ((str[i] - 'a') + 13) % 26 + 'a';
-		}
-		else if (str[i] >= 'A' && str[i] <= 'Z')
-		{
-			str[i] = ((str[i] - 'A') + 13) % 26 + 'A';
+			if (str[i] == alphabet[j])
+			{
+				str[i] = rot13key[j];
+				break;
+			}
 		}
 	}
-	return (result);
+	return (str);
 }
