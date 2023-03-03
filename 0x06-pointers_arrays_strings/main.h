@@ -13,5 +13,6 @@ int seperator(char c);
 void capitalize(char *c);
 char *leet(char *);
 char *rot13(char *);
+void print_number(int n);
 
 #endif
