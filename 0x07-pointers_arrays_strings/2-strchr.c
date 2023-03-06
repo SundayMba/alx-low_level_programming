@@ -1,3 +1,4 @@
+#include <stddef.h>
 /**
  * _strchr - a function that locates a character in a string.
  * @s: address of the first character of the buffer
@@ -11,8 +12,8 @@ char *_strchr(char *s, char c)
 	{
 		s++;
 	}
-	if (*s)
+	if (*s == c)
 		return (s);
 	else
-		return ('\0');
+		return (NULL);
 }
