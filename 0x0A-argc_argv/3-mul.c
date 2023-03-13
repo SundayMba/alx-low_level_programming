@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "main.h"
 /**
  * main - entry point of the program
  * @argc: argument count
