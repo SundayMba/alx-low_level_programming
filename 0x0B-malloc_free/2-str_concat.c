@@ -16,23 +16,26 @@ char *str_concat(char *s1, char *s2)
 
 	if (s1 == NULL && s2 != NULL)
 	{
-		ptr = set_mem(len1, len2, s2, NULL);
+		return (set_mem(len1, len2, s2, NULL));
 	}
 	else if (s2 == NULL && s1 != NULL)
 	{
-		ptr = set_mem(len2, len1, s1, NULL);
+		return (set_mem(len2, len1, s1, NULL));
 	}
 	else if (s1 == NULL && s2 == NULL)
 	{
 		len1++;
 		len2++;
 		ptr = malloc(len1 + len2 + 1);
+		if (ptr == NULL)
+			return (NULL);
+		else
+			return (ptr);
 	}
 	else
 	{
-		ptr = set_mem(len1, len2, s1, s2);
+		return (set_mem(len1, len2, s1, s2));
 	}
-	return (ptr);
 }
 
 /**
@@ -54,6 +57,8 @@ char *set_mem(int len1, int len2, char *s1, char *s2)
 		while (s1[len2])
 			len2++;
 		ptr2 = malloc(len1 + len2 + 1);
+		if (ptr2 == NULL)
+			return (NULL);
 		ptr1 = ptr2;
 		while (*s1)
 			*ptr2++ = *s1++;
