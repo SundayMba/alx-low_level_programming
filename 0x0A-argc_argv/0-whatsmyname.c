@@ -1,19 +1,16 @@
 #include <stdio.h>
-#include "main.h"
+
 /**
- * main - entry point of the program
+ * main - prints its name, followed by a new line.
  * @argc: argument count
- * @argv: argument vector or or array or arguments
+ * @argv: arguments
+ *
  * Return: 0
  */
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
-	int i;
+	(void)argc;
 
-	if (argc >= 1)
-	{
-		for (i = 0; i < 1; i++)
-			printf("%s\n", argv[i]);
-	}
+	printf("%s\n", argv[0]);
 	return (0);
 }
