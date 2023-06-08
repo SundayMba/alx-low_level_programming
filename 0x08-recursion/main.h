@@ -9,4 +9,6 @@ int factorial(int n);
 int _pow_recursion(int x, int y);
 int _sqrt_recursion(int n);
 int cal_sqrt(int start, int target);
+int is_prime_number(int n);
+int cal_prime(int, int);
 #endif
