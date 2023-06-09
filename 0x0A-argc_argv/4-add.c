@@ -10,7 +10,7 @@
 
 int main(int argc, char *argv[] __attribute__((unused)))
 {
-	int i, sum = 0;
+	int i, sum = 0, digit;
 
 	if (argc == 1)
 	{
@@ -19,7 +19,8 @@ int main(int argc, char *argv[] __attribute__((unused)))
 	}
 	for (i = 1; i < argc; i++)
 	{
-		if (!isdigit(*(argv[i])))
+		digit = isdigit(*(argv[i]));
+		if (!digit || digit < 0)
 		{
 			printf("Error\n");
 			return (1);
