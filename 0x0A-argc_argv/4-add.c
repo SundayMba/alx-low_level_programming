@@ -10,22 +10,22 @@
 
 int main(int argc, char *argv[] __attribute__((unused)))
 {
-	int i, sum = 0, digit;
+	int i, sum = 0;
 
-	if (argc == 1)
+	if (argc <= 1)
 	{
 		printf("0\n");
 		return (0);
 	}
 	for (i = 1; i < argc; i++)
 	{
-		digit = isdigit(*(argv[i]));
-		if (!digit || digit < 0)
+		if (isdigit(*(argv[i])))
 		{
-			printf("Error\n");
-			return (1);
+			sum += atoi(argv[i]);
+			continue;
 		}
-		sum += atoi(argv[i]);
+		printf("Error\n");
+		return (1);
 	}
 	printf("%d\n", sum);
 	return (0);
