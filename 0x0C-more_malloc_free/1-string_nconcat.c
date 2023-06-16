@@ -10,21 +10,21 @@
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	char *ptr, *s1_dup = s1, *s2_dup = s2;
+	char *ptr;
 	unsigned int i, j, m = 0, k = 0, size;
 
 	if (s1 == NULL)
 		s1 = "";
 	if (s2 == NULL)
 		s2 = "";
-	while (*s1_dup++)
+	while (s1[m])
 		m++;
-	while (*s2_dup++)
+	while (s2[k])
 		k++;
 	if (n >= k)
 		n = k;
 	size = m + n;
-	ptr = malloc(sizeof *ptr * size + 1);
+	ptr = malloc(sizeof(char) * size + 1);
 	if (ptr == NULL)
 		return (NULL);
 	for (i = 0; i < m; i++)
