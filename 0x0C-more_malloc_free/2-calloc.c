@@ -4,7 +4,6 @@
  * _calloc - contiguos allocation
  * @nmemb: number of members
  * @size: size of a single type
- * 
  * Return: pointer to the newly allocated memory
  */
 
