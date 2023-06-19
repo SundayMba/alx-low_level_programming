@@ -1,5 +1,5 @@
 #ifndef DOG_H
-#define DOH_H
+#define DOG_H
 
 /**
  * dog - a dog structure data
