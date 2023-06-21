@@ -27,11 +27,6 @@ int main(int argc, char *argv[])
 		exit(99);
 	}
 	result = fun_op_ptr(num1, num2);
-	if (result == 100)
-	{
-		printf("Error\n");
-		exit(100);
-	}
 	printf("%d\n", result);
 	return (0);
 }
