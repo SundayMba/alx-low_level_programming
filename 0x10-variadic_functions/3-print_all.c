@@ -37,6 +37,7 @@ void print_all(const char * const format, ...)
 		flag = 0;
 	}
 	printf("\n");
+	va_end(ap);
 }
 
 /**
@@ -84,8 +85,7 @@ int print_string(va_list list)
 
 	s = va_arg(list, char *);
 	if (s == NULL)
-		printf("(nil)");
-	else
-		printf("%s", s);
+		s = "(nil)";
+	printf("%s", s);
 	return (1);
 }
