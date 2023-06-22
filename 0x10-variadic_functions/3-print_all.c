@@ -12,80 +12,41 @@
 void print_all(const char * const format, ...)
 {
 	va_list ap;
-	op_t format_ops[] = {
-		{'c', print_char},
-		{'i', print_int},
-		{'f', print_float},
-		{'s', print_string}
-	};
-	int i, j, flag = 0;
+	int flag = 1, i = 0;
+	char *str;
 
 	va_start(ap, format);
-	i = 0;
 	while (format && format[i])
 	{
-		j = 0;
-		while (j < 4)
+		switch (format[i])
 		{
-			if (format_ops[j].id == format[i])
-				flag = format_ops[j].handler(ap);
-			j++;
+			case 'c':
+				printf("%c", va_arg(ap, int));
+				flag = 0;
+				break;
+			case 'i':
+				printf("%d", va_arg(ap, int));
+				flag = 0;
+				break;
+			case 'f':
+				printf("%f", va_arg(ap, double));
+				flag = 0;
+				break;
+			case 's':
+				str = va_arg(ap, char *);
+				if (str == NULL)
+					str = "(nil)";
+				printf("%s", str);
+				flag = 0;
+				break;
+			default:
+				flag = 1;
+				break;
 		}
-		if (format[i + 1] != '\0' && flag == 1)
+		if (format[i + 1] != '\0' && flag == 0)
 			printf(", ");
 		i++;
-		flag = 0;
 	}
 	printf("\n");
 	va_end(ap);
-}
-
-/**
- * print_char - print chars
- * @list: variable list of argument
- *
- * Return: number rep. flag
- */
-int print_char(va_list list)
-{
-	printf("%c", va_arg(list, int));
-	return (1);
-}
-
-/**
- * print_int - print int
- * @list: list of argument
- * Return: flag
- */
-int print_int(va_list list)
-{
-	printf("%d", va_arg(list, int));
-	return (1);
-}
-
-/**
- * print_float - print float
- * @list: list of argument
- * Return: flag
- */
-int print_float(va_list list)
-{
-	printf("%f", va_arg(list, double));
-	return (1);
-}
-
-/**
- * print_string - print string
- * @list: list of argument
- * Return: flag
- */
-int print_string(va_list list)
-{
-	char *s;
-
-	s = va_arg(list, char *);
-	if (s == NULL)
-		s = "(nil)";
-	printf("%s", s);
-	return (1);
 }

@@ -20,8 +20,5 @@ struct op
 	int (*handler)(va_list);
 };
 typedef struct op op_t;
-int print_int(va_list);
-int print_float(va_list);
-int print_char(va_list);
-int print_string(va_list);
+
 #endif
