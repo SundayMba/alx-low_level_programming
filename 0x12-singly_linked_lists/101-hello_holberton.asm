@@ -1,7 +1,7 @@
 global main ;defining the start label
 
 section .text ; instruction section
-	extern printf
+	extern printf ;printf function call
 
 main:
 	push rbp
