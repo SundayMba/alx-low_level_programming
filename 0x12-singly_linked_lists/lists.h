@@ -9,7 +9,6 @@
  *
  * Description: singly linked list node data structure
  */
-void __attribute__((constructor)) main_b();
 
 struct list_s
 {
@@ -20,6 +19,7 @@ struct list_s
 typedef struct list_s list_t;
 
 int _putchar(char c);
+void __attribute__((constructor)) main_b();
 size_t print_list(const list_t *h);
 size_t list_len(const list_t *h);
 list_t *add_node(list_t **head, const char *str);
