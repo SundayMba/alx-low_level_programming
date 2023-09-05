@@ -16,4 +16,11 @@ int closeError(int);
 int readError(char *);
 int writeError(char *);
 void printHeader(const Elf64_Ehdr *hdr);
+void printEntryPointAddress(const Elf64_Ehdr *hdr);
+void printVersion(const Elf64_Ehdr *hdr);
+void printData(const Elf64_Ehdr *hdr);
+void printClass(const Elf64_Ehdr *hdr);
+void printOSABI(const Elf64_Ehdr *hdr);
+void printType(const Elf64_Ehdr *hdr);
+void printABI(const Elf64_Ehdr *hdr);
 #endif
