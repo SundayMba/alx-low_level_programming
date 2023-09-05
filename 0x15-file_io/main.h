@@ -12,4 +12,5 @@ int copyContent(int *, int *);
 int closeError(int);
 int readError(char *);
 int writeError(char *);
+void printHeader(const Elf64_Ehdr *hdr);
 #endif

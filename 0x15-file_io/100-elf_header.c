@@ -1,75 +1,47 @@
+#include <elf.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
 
 /**
- * main - entry point
- * @argc: count of argument from command line
- * @argv: array of strings from the command line
- * Return: integer
+ * main - entry point of the program
+ * @ac: argument count
+ * @av: argument vector
+ * Return: 98 on error or 0 on success.
  */
 
-int main(int argc, char *argv[])
+int main(int ac, char **av)
 {
-	/*header data structure variable declaration*/
 	Elf64_Ehdr hdr;
-	int fd;
+	int fd, byteRead;
 
-	/* check for passed in argument */
-	if (argc != 2)
+	/* check for valid the input argument */
+	if (ac != 2)
 	{
-		dprintf(STDERR_FILENO, "Usage: elf_header elf_filename\n");
-		exit(98);
+		printf("Usage: %s filename\n", av[0]);
+		return (0);
 	}
-	/* open the elf file for reading */
-	fd = open(argv[1], O_RDONLY);
+	/* open the elf file */
+	fd = open(av[1], O_RDONLY);
 	if (fd == -1)
 	{
-		fprintf(stderr, "Error: can't open the file %s\n", argv[1]);
-		exit(98);
+		dprintf(STDERR_FILENO, "failed to open file %s\n", av[1]);
+		return (98);
 	}
-	/* making sure to start from the offset of 0 in the file */
-	lseek(fd, 0, SEEK_CUR);
-	/* reading from the elf file */
-	bytRd = read(fd, &hdr, sizeof(Elf64_Ehdr));
-	if (bytRd == -1)
+	/* read from the file */
+	byteRead = read(fd, &hdr, sizeof(Elf64_Ehdr));
+	if (byteRead == -1)
 	{
-		fprintf(stderr, "Error: can't read from file %s\n", argv[1]);
-		exit(98);
+		dprintf(STDERR_FILENO, "failed to read from file %s\n", av[1]);
+		return (98);
 	}
-	/* checking for valid elf file using sile size and magic number */
-	if (sizeof(Elf64_Ehdr) != bytRd)
-		if (memcmp(hdr->e_ident, ELFMAG, SELFMAG) != 0)
-		{
-			fprint(stderr, "Error: %s not an elf file\n", argv[1]);
-			exit(98);
-		}
+	/* check if valid elf file */
+	if (memcmp(hdr.e_indent, ELFMAG, SELFMAG) != 0)
+	{
+		dprintf(STDERR_FILENO, "%s: Not a valid elf file\n", av[1]);
+		return (98);
+	}
 	printHeader(&hdr);
-	close(fd);
 	return (0);
 }
-
-/**
- * printfHeader - print the header of an elf file
- * @hdr: pointer to the actual memory location
- * Return: void
- */
-
-void printHeader(const Elf64_Ehdr *hdr)
-{
-	printElfMagic(hdr);
-	elfValue = getElfclass(hdr);
-	printf("Class: %s\n", elfValue);
-	elfValue = getElfData(hdr);
-	printf("Data: %s\n", elfValue);
-	elfValue = getElfVersion(hdr);
-	printf("Version: %s\n", elfValue);
-	elfValue = getElfOSABI(hdr);
-	printf("OS/ABI: %s\n", elfValue);
-	elfValue = getElfABIVersion(hdr);
-	printf("ABI Version: %s\n", elfValue);
-	elfValue = getElfType(hdr);
-	printf("Type: %s\n", elfValue);
-	elfValue = getEntryPointAddr(hdr);
-	printf("Entry point address: %s\n", elfValue);
-}
-
-printfElfMagic
