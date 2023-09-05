@@ -43,6 +43,6 @@ int main(int ac, char **av)
 		dprintf(STDERR_FILENO, "%s: Not a valid elf file\n", av[1]);
 		return (98);
 	}
-	//printHeader(&hdr);
+	printHeader(&hdr);
 	return (0);
 }
