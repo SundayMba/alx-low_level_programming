@@ -12,7 +12,7 @@ void printHeader(const Elf64_Ehdr *hdr)
 
 	printf("ELF Header:\n");
 	/* print the magic field */
-	printf("Magic: ");
+	printf("  Magic:  ");
 	for (i = 0; i < EI_NIDENT; i++)
 	{
 		printf("%02x", hdr->e_ident[i]);
@@ -22,19 +22,19 @@ void printHeader(const Elf64_Ehdr *hdr)
 			printf("\n");
 	}
 	/* class of file */
-	printClass(&hdr);
+	printClass(hdr);
 	/* check for data */
-	printData(&hdr);
+	printData(hdr);
 	/* print version */
-	printVersion(&hdr);
+	printVersion(hdr);
 	/* print OS/ABI */
-	printOSABI(&hdr);
+	printOSABI(hdr);
 	/* printABIVERSION */
-	printABI(&hdr);
+	printABI(hdr);
 	/* print type */
-	printType(&hdr);
+	printType(hdr);
 	/* print Entry Point */
-	printEntryPointAddress(&hdr);
+	printEntryPointAddress(hdr);
 }
 
 /**
@@ -45,7 +45,7 @@ void printHeader(const Elf64_Ehdr *hdr)
 
 void printClass(const Elf64_Ehdr *hdr)
 {
-	printf(" Class:                      ");
+	printf("  Class:                            ");
 	switch (hdr->e_ident[EI_CLASS])
 	{
 		case ELFCLASSNONE:
@@ -60,7 +60,6 @@ void printClass(const Elf64_Ehdr *hdr)
 			printf("<unknown %x>\n", hdr->e_ident[EI_CLASS]);
 			break;
 	}
->>>>>>> ae835ded720f2f7aa83004ceaee6f82d849ab0ad
 }
 
 
@@ -72,7 +71,7 @@ void printClass(const Elf64_Ehdr *hdr)
 
 void printData(const Elf64_Ehdr *hdr)
 {
-	printf(" Data:                      ");
+	printf("  Data:                             ");
 	switch (hdr->e_ident[EI_DATA])
 	{
 		case ELFDATA2LSB:
@@ -82,7 +81,7 @@ void printData(const Elf64_Ehdr *hdr)
 			printf("2's complement, big endian\n");
 			break;
 		case ELFDATANONE:
-			print("none\n");
+			printf("none\n");
 			break;
 		default:
 			printf("<unknown %x>\n", hdr->e_ident[EI_DATA]);
@@ -98,14 +97,14 @@ void printData(const Elf64_Ehdr *hdr)
 
 void printVersion(const Elf64_Ehdr *hdr)
 {
-	printf(" Version:                %d", hdr->e_ident[EI_VERSION])
+	printf("  Version:                          %d", hdr->e_ident[EI_VERSION]);
 	switch (hdr->e_ident[EI_VERSION])
 	{
 		case EV_CURRENT:
-			printf(" (current)");
+			printf(" (current)\n");
 			break;
 		default:
-			printf(" none");
+			printf(" none\n");
 			break;
 	}
 }
@@ -118,12 +117,9 @@ void printVersion(const Elf64_Ehdr *hdr)
 
 void printOSABI(const Elf64_Ehdr *hdr)
 {
-	printf(" OS/ABI                         ");
+	printf("  OS/ABI                            ");
 	switch (hdr->e_ident[EI_OSABI])
 	{
-		case ELFOSABI_NONE:
-			printf("UNIX - System V\n");
-			break;
 		case ELFOSABI_SYSV:
 			printf("UNIX - System V\n");
 			break;

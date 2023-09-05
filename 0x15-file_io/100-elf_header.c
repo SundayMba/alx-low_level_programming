@@ -52,7 +52,7 @@ int main(int ac, char **av)
 
 void printType(const Elf64_Ehdr *hdr)
 {
-	printf(" Type:                          ");
+	printf("  Type:                             ");
 	switch (hdr->e_type)
 	{
 		case ET_REL:
@@ -81,7 +81,7 @@ void printType(const Elf64_Ehdr *hdr)
 
 void printEntryPointAddress(const Elf64_Ehdr *hdr)
 {
-	print(" Entry point address: 0x%lx\n", hdr->e_entry);
+	printf("  Entry point address:              0x%lx\n", hdr->e_entry);
 }
 
 /**
@@ -92,5 +92,5 @@ void printEntryPointAddress(const Elf64_Ehdr *hdr)
 
 void printABI(const Elf64_Ehdr *hdr)
 {
-	print(" ABI:                         %x", hdr->e_ident[EI_ABIVERSION]);
+	printf("  ABI:                              %x\n", hdr->e_ident[EI_ABIVERSION]);
 }
