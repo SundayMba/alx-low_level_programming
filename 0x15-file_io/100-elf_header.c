@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include <fcntl.h>
 
 /**
  * main - entry point of the program
@@ -37,11 +38,11 @@ int main(int ac, char **av)
 		return (98);
 	}
 	/* check if valid elf file */
-	if (memcmp(hdr.e_indent, ELFMAG, SELFMAG) != 0)
+	if (memcmp(hdr.e_ident, ELFMAG, SELFMAG) != 0)
 	{
 		dprintf(STDERR_FILENO, "%s: Not a valid elf file\n", av[1]);
 		return (98);
 	}
-	printHeader(&hdr);
+	//printHeader(&hdr);
 	return (0);
 }
