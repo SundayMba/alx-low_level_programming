@@ -52,7 +52,7 @@ int main(int ac, char **av)
 
 void printType(const Elf64_Ehdr *hdr)
 {
-	printf("  Type:                             ");
+	printf("  Type:                              ");
 	switch (hdr->e_type)
 	{
 		case ET_REL:
@@ -81,7 +81,7 @@ void printType(const Elf64_Ehdr *hdr)
 
 void printEntryPointAddress(const Elf64_Ehdr *hdr)
 {
-	printf("  Entry point address:              ");
+	printf("  Entry point address:               ");
 	printf("0x%lx\n", hdr->e_entry);
 }
 
@@ -93,7 +93,7 @@ void printEntryPointAddress(const Elf64_Ehdr *hdr)
 
 void printABI(const Elf64_Ehdr *hdr)
 {
-	printf("  ABI:                              ");
+	printf("  ABI:                               ");
 	printf("%x\n", hdr->e_ident[EI_ABIVERSION]);
 }
 
@@ -109,7 +109,7 @@ void printHeader(const Elf64_Ehdr *hdr)
 
 	printf("ELF Header:\n");
 	/* print the magic field */
-	printf("  Magic:  ");
+	printf("  Magic:   ");
 	for (i = 0; i < EI_NIDENT; i++)
 	{
 		printf("%02x", hdr->e_ident[i]);
@@ -142,7 +142,7 @@ void printHeader(const Elf64_Ehdr *hdr)
 
 void printClass(const Elf64_Ehdr *hdr)
 {
-	printf("  Class:                            ");
+	printf("  Class:                             ");
 	switch (hdr->e_ident[EI_CLASS])
 	{
 		case ELFCLASSNONE:
@@ -169,7 +169,7 @@ void printClass(const Elf64_Ehdr *hdr)
 
 void printData(const Elf64_Ehdr *hdr)
 {
-	printf("  Data:                             ");
+	printf("  Data:                              ");
 	switch (hdr->e_ident[EI_DATA])
 	{
 		case ELFDATA2LSB:
@@ -195,7 +195,7 @@ void printData(const Elf64_Ehdr *hdr)
 
 void printVersion(const Elf64_Ehdr *hdr)
 {
-	printf("  Version:                          %d", hdr->e_ident[EI_VERSION]);
+	printf("  Version:                           %d", hdr->e_ident[EI_VERSION]);
 	switch (hdr->e_ident[EI_VERSION])
 	{
 		case EV_CURRENT:
@@ -215,7 +215,7 @@ void printVersion(const Elf64_Ehdr *hdr)
 
 void printOSABI(const Elf64_Ehdr *hdr)
 {
-	printf("  OS/ABI                            ");
+	printf("  OS/ABI                             ");
 	switch (hdr->e_ident[EI_OSABI])
 	{
 		case ELFOSABI_SYSV:
