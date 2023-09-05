@@ -147,6 +147,7 @@ void printClass(const Elf64_Ehdr *hdr)
 	{
 		case ELFCLASSNONE:
 			printf("none\n");
+			break;
 		case ELFCLASS32:
 			printf("ELF32\n");
 			break;
