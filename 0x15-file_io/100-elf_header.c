@@ -81,7 +81,8 @@ void printType(const Elf64_Ehdr *hdr)
 
 void printEntryPointAddress(const Elf64_Ehdr *hdr)
 {
-	printf("  Entry point address:              0x%lx\n", hdr->e_entry);
+	printf("  Entry point address:              ");
+	printf("0x%lx\n", hdr->e_entry);
 }
 
 /**
@@ -92,5 +93,6 @@ void printEntryPointAddress(const Elf64_Ehdr *hdr)
 
 void printABI(const Elf64_Ehdr *hdr)
 {
-	printf("  ABI:                              %x\n", hdr->e_ident[EI_ABIVERSION]);
+	printf("  ABI:                              ");
+	printf("%x\n", hdr->e_ident[EI_ABIVERSION]);
 }
