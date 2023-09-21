@@ -1,6 +1,8 @@
 #ifndef MAIN_HEADER
 #define MAIN_HEADER
 
+#include <stdio.h>
+
 int _putchar(char c);
 char *_strcat(char *dest, char *src);
 char *_strncat(char *dest, char *src, int n);
@@ -14,5 +16,6 @@ void capitalize(char *c);
 char *leet(char *);
 char *rot13(char *);
 void print_number(int n);
+void print_buffer(char *b, int size);
 
 #endif
