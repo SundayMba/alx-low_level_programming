@@ -9,7 +9,7 @@ void print_all(const char * const format, ...);
 
 /**
  * struct op - structured memory to store data
- * 
+ *
  * @id: identifiers or signals
  * @handler: function handlers
  */
