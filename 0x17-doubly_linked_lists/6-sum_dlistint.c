@@ -3,7 +3,7 @@
 /**
  * sum_dlistint - sum doubly linked list of integer
  * @head: pointer to the head node
- * @Return: the sum or 0 if empty
+ * Return: the sum or 0 if empty
  */
 
 int sum_dlistint(dlistint_t *head)
