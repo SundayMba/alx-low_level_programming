@@ -1,3 +1,2 @@
-#!/usr/bin/bash
-gcc -fpic -c *.c # Generate an object file given
-gcc -shared -o liball.so *.o
+#!/bin/bash
+gcc -fpic -c *.c ; gcc -shared -o liball.so *.o
