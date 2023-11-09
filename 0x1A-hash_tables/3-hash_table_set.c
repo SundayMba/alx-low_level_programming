@@ -54,12 +54,19 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 hash_node_t *create_hash_node(const char *key, const char *value)
 {
 	hash_node_t *node;
+	char *tmp1, *tmp2;
 
 	node = (hash_node_t *)malloc(sizeof(hash_node_t));
 	if (node == NULL)
 		return (NULL);
-	node->key = strdup(key);
-	node->value = strdup(value);
+	tmp1 = malloc(sizeof(char) * (strlen(key) + 1));
+	strcpy(tmp1, key);
+	tmp1[strlen(key)] = '\0';
+	node->key = tmp1;
+	tmp2 = malloc(sizeof(char) * (strlen(value) + 1));
+	strcpy(tmp2, value);
+	tmp2[strlen(value)] = '\0';
+	node->value = tmp2;
 	node->next = NULL;
 	return (node);
 }
