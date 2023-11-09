@@ -11,6 +11,8 @@ void hash_table_print(const hash_table_t *ht)
 	unsigned long int index, count;
 	hash_node_t *head;
 
+	if (ht == NULL)
+		return;
 	count = hash_node_count(ht);
 	printf("{");
 	for (index = 0; index < ht->size; index++)
