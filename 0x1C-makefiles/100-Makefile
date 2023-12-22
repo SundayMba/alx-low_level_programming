@@ -39,4 +39,6 @@ fclean: clean oclean
 # rules for recompiling
 re: oclean all
 
+.PHONY: all clean re
+
 # endif
