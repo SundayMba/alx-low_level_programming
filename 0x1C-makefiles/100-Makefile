@@ -19,7 +19,7 @@ CFLAGS = -Wall -Werror -Wextra -pedantic
 # rules for all target
 all: $(NAME)
 
-# ifeq ($(wildcard m.h), m.h)
+ifeq ($(wildcard m.h), m.h)
 
 # rules for generating executable by linking all object files
 $(NAME): $(OBJ)
@@ -41,4 +41,6 @@ re: oclean all
 
 .PHONY: all clean oclean fclean re
 
-# endif
+else
+$(error m.h does not exist)
+endif
