@@ -17,7 +17,7 @@ RM = rm -f
 all: $(NAME)
 
 # rules for generating executable by linking all object files
-$(NAME): $(OBJ)
+$(NAME): $(OBJ
 	$(CC) $^ -o $@
 
 # rules for creating object files, for each source file, generate an object file
