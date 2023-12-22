@@ -19,7 +19,7 @@ CFLAGS = -Wall -Werror -Wextra -pedantic
 # rules for all target
 all: $(NAME)
 
-ifeq ($(wildcard m.h), m.h)
+# ifeq ($(wildcard m.h), m.h)
 
 # rules for generating executable by linking all object files
 $(NAME): $(OBJ)
@@ -39,4 +39,4 @@ fclean: clean oclean
 # rules for recompiling
 re: oclean all
 
-endif
+# endif
